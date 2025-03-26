@@ -1,30 +1,28 @@
 package com.example.store;
 
-import com.example.store.entities.Address;
-import com.example.store.entities.Profile;
-import com.example.store.entities.Tag;
-import com.example.store.entities.User;
+import com.example.store.entities.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.math.BigDecimal;
 
 @SpringBootApplication
 public class StoreApplication {
 
     public static void main(String[] args) {
 //        SpringApplication.run(StoreApplication.class, args);
-        User user = User.builder()
-                .name("John")
-                .password("password")
-                .email("john@gmail.com")
+        Category category = Category.builder()
+                .name("category")
                 .build();
 
-        Profile profile = Profile.builder()
-                .bio("bio")
+        Product product = Product.builder()
+                .name("product")
+                .price(BigDecimal.valueOf(100.05))
                 .build();
 
-        user.setProfile(profile);
+        category.addProduct(product);
 
-        System.out.println(user);
+        System.out.println(category);
     }
 
 }
