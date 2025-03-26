@@ -1,6 +1,8 @@
 package com.example.store;
 
 import com.example.store.entities.Address;
+import com.example.store.entities.Profile;
+import com.example.store.entities.Tag;
 import com.example.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,14 +18,11 @@ public class StoreApplication {
                 .email("john@gmail.com")
                 .build();
 
-        Address address = Address.builder()
-                .street("Street 1")
-                .state("State")
-                .city("City")
-                .zip("zip")
+        Profile profile = Profile.builder()
+                .bio("bio")
                 .build();
 
-        user.addAddress(address);
+        user.setProfile(profile);
 
         System.out.println(user);
     }
